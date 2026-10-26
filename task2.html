@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 – PC Configurator</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/task2.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>PC Configurator</h1>
+      <p>Build your custom PC – choose one item per category</p>
+    </header>
+
+    <nav class="nav">
+      <a href="task1.html">Task 1 – Game</a>
+      <a href="task2.html" class="active">Task 2 – Configurator</a>
+      <a href="task3.html">Task 3 – Character Creator</a>
+    </nav>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search components..." aria-label="Search components">
+      <select id="filter-category" aria-label="Filter by category">
+        <option value="all">All categories</option>
+      </select>
+    </div>
+
+    <div id="empty-search" class="status warning hidden">No components match your search.</div>
+
+    <div class="config-layout">
+      <div class="categories" id="categories"></div>
+
+      <aside class="card summary-panel">
+        <h3>Your Build</h3>
+        <div class="budget-input">
+          <label for="budget">Budget $</label>
+          <input type="number" id="budget" min="0" step="50" value="1500">
+        </div>
+        <ul class="summary-list" id="summary-list"></ul>
+        <div class="total-row">
+          <span>Total</span>
+          <span id="total-price">$0</span>
+        </div>
+        <div id="budget-msg" class="status hidden" role="status"></div>
+        <div id="conflict-msg" class="status error hidden" role="status"></div>
+        <button class="btn" id="btn-save" type="button" disabled>Save Build</button>
+        <div class="saved-builds" id="saved-builds">
+          <h4>Saved Builds (0/3)</h4>
+          <div id="saved-list"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

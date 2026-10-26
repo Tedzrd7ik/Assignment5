@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3 – Character Creator</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/task3.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Character Creator</h1>
+      <p>Build your hero – live preview updates as you type</p>
+    </header>
+
+    <nav class="nav">
+      <a href="task1.html">Task 1 – Game</a>
+      <a href="task2.html">Task 2 – Configurator</a>
+      <a href="task3.html" class="active">Task 3 – Character Creator</a>
+    </nav>
+
+    <div id="global-errors" class="global-errors hidden" role="alert"></div>
+
+    <div class="form-layout">
+      <form id="char-form" class="card" novalidate>
+        <div class="form-group">
+          <label for="name">Character Name</label>
+          <input type="text" id="name" name="name" required minlength="3" maxlength="20" autocomplete="off">
+          <div class="error-msg" id="name-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="class">Class</label>
+          <select id="class" name="class" required>
+            <option value="">Select a class</option>
+            <option value="warrior">Warrior</option>
+            <option value="mage">Mage</option>
+            <option value="rogue">Rogue</option>
+            <option value="cleric">Cleric</option>
+          </select>
+          <div class="error-msg" id="class-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Color</label>
+          <div class="color-swatches" id="color-swatches" role="radiogroup" aria-label="Character color">
+            <button type="button" class="color-swatch" data-color="#38bdf8" style="background:#38bdf8" aria-label="Sky blue"></button>
+            <button type="button" class="color-swatch" data-color="#22c55e" style="background:#22c55e" aria-label="Green"></button>
+            <button type="button" class="color-swatch" data-color="#ef4444" style="background:#ef4444" aria-label="Red"></button>
+            <button type="button" class="color-swatch" data-color="#f59e0b" style="background:#f59e0b" aria-label="Amber"></button>
+            <button type="button" class="color-swatch" data-color="#a855f7" style="background:#a855f7" aria-label="Purple"></button>
+            <button type="button" class="color-swatch" data-color="#ec4899" style="background:#ec4899" aria-label="Pink"></button>
+          </div>
+          <input type="hidden" id="color" name="color" value="">
+          <div class="error-msg" id="color-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Skills (exactly 20 points, each 1–10)</label>
+          <div class="points-left" id="points-left">Points left: 20</div>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <label for="str">Strength</label>
+              <input type="number" id="str" name="str" min="1" max="10" value="1">
+            </div>
+            <div class="skill-row">
+              <label for="agi">Agility</label>
+              <input type="number" id="agi" name="agi" min="1" max="10" value="1">
+            </div>
+            <div class="skill-row">
+              <label for="int">Intelligence</label>
+              <input type="number" id="int" name="int" min="1" max="10" value="1">
+            </div>
+            <div class="skill-row">
+              <label for="vit">Vitality</label>
+              <input type="number" id="vit" name="vit" min="1" max="10" value="1">
+            </div>
+          </div>
+          <div class="error-msg" id="skills-error"></div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success">Create Character</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+
+      <aside class="preview-card" id="preview">
+        <h3>Live Preview</h3>
+        <div class="char-avatar" id="preview-avatar">?</div>
+        <div class="char-name" id="preview-name">Unnamed</div>
+        <div class="char-class" id="preview-class">No class</div>
+        <div class="skill-bars">
+          <div class="skill-bar-row">
+            <span>STR</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-str" style="width:10%;background:#ef4444"></div></div>
+            <span id="val-str">1</span>
+          </div>
+          <div class="skill-bar-row">
+            <span>AGI</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-agi" style="width:10%;background:#22c55e"></div></div>
+            <span id="val-agi">1</span>
+          </div>
+          <div class="skill-bar-row">
+            <span>INT</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-int" style="width:10%;background:#38bdf8"></div></div>
+            <span id="val-int">1</span>
+          </div>
+          <div class="skill-bar-row">
+            <span>VIT</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-vit" style="width:10%;background:#f59e0b"></div></div>
+            <span id="val-vit">1</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div id="result" class="result-panel hidden">
+      <h2>Character Created!</h2>
+      <div id="result-content"></div>
+      <button type="button" class="btn" id="btn-new" style="margin-top:1rem">Create Another</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 – Higher or Lower</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/task1.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Higher or Lower</h1>
+      <p>Guess if the next number is higher or lower</p>
+    </header>
+
+    <nav class="nav">
+      <a href="task1.html" class="active">Task 1 – Game</a>
+      <a href="task2.html">Task 2 – Configurator</a>
+      <a href="task3.html">Task 3 – Character Creator</a>
+    </nav>
+
+    <div class="card">
+      <div class="game-stats">
+        <div class="stat-box">
+          <div class="label">Lives</div>
+          <div class="value" id="lives">3</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Streak</div>
+          <div class="value" id="streak">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Best</div>
+          <div class="value" id="best">0</div>
+        </div>
+      </div>
+
+      <div id="play-area">
+        <p style="text-align:center;color:var(--text-muted)">Current number</p>
+        <div class="current-number" id="current-number">—</div>
+
+        <div class="controls" id="controls">
+          <button class="btn btn-success" id="btn-higher" type="button">Higher</button>
+          <button class="btn btn-danger" id="btn-lower" type="button">Lower</button>
+        </div>
+
+        <div id="message" class="status info hidden" role="status"></div>
+      </div>
+
+      <div id="game-over" class="game-over hidden">
+        <h2 id="end-title">Game Over</h2>
+        <p id="end-message"></p>
+        <button class="btn" id="btn-restart" type="button">Play Again</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
